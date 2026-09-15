@@ -1,2 +1,2 @@
-stapel-store-snapshot-v1 MEYCIQCMSEAeIQBd+U1LGmqGFldb7ybAuUyx8kQNcGr+5LdtIQIhAPl+VsRDUDEiq+aTrH2Lw//CzI5WPfJRwoqlWZ4q9N0I
+stapel-store-snapshot-v1 MEYCIQCG2HPaoGPDw729V2hM7viZxJVGvLdgABNptRueWy48BAIhAI689YpF9F1+dX2lcbRbJEHrkPi84fPlDDvAa3kSpVsb
 {"v":20260915,"generated":"2026-09-15","chains":[{"k":"dollargeneral_us","name":"Dollar General","c":"US"},{"k":"shell_us","name":"Shell","c":"US"}],"stores":[["dollargeneral_us",30.31138,-104.0158,"","79843","Marfa"],["dollargeneral_us",30.3551,-103.67224,"North 15th Street 105","79830","Alpine"],["shell_us",30.35477,-103.67677,"","",""]]}
