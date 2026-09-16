@@ -1,2 +1,2 @@
-stapel-store-snapshot-v1 MEQCIGFJs0shwmIaZDFD8lTa4HhCBJqJBBpIjWWDdyqyGF2WAiA//YoEFAjEOPl+Xfi4q0XZqriwPh8xLck5faJIRPP8Ig==
+stapel-store-snapshot-v1 MEUCIFCtunWAg+E4tRwRLH4MQZR/R4WNKJncOprLIb4YlAYoAiEAxjxtOrE7dgAJjDCzHXlwfpYCH/8IAF4o/csZfQv27Cg=
 {"v":20260915,"generated":"2026-09-15","chains":[{"k":"safeway_us","name":"Safeway","c":"US"},{"k":"homedepot_us","name":"The Home Depot","c":"US"},{"k":"fredmeyer_us","name":"Fred Meyer","c":"US"},{"k":"petco_us","name":"Petco","c":"US"}],"stores":[["safeway_us",55.34842,-131.67326,"Tongass Avenue 2417","99901","Ketchikan"],["homedepot_us",58.35901,-134.47882,"","","juneau"],["fredmeyer_us",58.35942,-134.56183,"Glacier Highway 8181","99801","Juneau"],["petco_us",58.36232,-134.57496,"","",""]]}
