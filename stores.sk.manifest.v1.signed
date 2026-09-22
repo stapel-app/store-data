@@ -1,2 +1,2 @@
-stapel-store-snapshot-v1 MEYCIQDx+C+JC7rUEM91P9wRSWyCsudMYwvl2grM1HVAAfglrQIhAN4aKb6s5T/v3NhFZxpmIntgdZ25pm321lyxHdLXvBkn
+stapel-store-snapshot-v1 MEUCIBVo580VfGM22X8mEa6v6ci1bgIfzYR856IQJ9bHVBtrAiEA9Q9Ni+gsW6CxlwBYlJJWgiTu8eW6i100oBPg2nHuq4g=
 {"v":20260917,"generated":"2026-09-17","country":"SK","partition":1111427959,"baseline":"0000","parts":[{"id":"0000","version":1,"bytes":186318,"sha256":"ea187714d2072371031a5df0b5aad5d6b73f9ff1439586da37c81e2cf6f67134","stores":3793,"minLat":47.74613,"maxLat":49.54072,"minLon":16.85699,"maxLon":22.42361},{"id":"0001","version":1,"bytes":183148,"sha256":"8bf3ace5a2230ae2b7ac605b1f67955cf962c74a9e8cbce96df2088e6feb2f39","stores":3721,"minLat":47.75911,"maxLat":49.52874,"minLon":16.84571,"maxLon":22.51229}]}
