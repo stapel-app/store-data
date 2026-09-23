@@ -1,2 +1,2 @@
-stapel-store-snapshot-v1 MEUCIDTR1UGykzcfFUj1IpfcJTmSVpOdoDrnYc4dVxzt8KiTAiEArHdiaxLHvsvN025Vp1Xm104W07iI59pRM0St7TbNdDQ=
+stapel-store-snapshot-v1 MEUCIQClScWIzuHynbIld1n35iwoCG/Gx9qU5Ou/bceckJbt7AIgRK5NpqFOYk5OTgPN8EvRNwo1g6lBLyWnluNwUxv1ObE=
 {"v":20260922,"generated":"2026-09-22","chains":[{"k":"walmart_us","name":"Walmart","c":"US"},{"k":"safeway_us","name":"Safeway","c":"US"},{"k":"mcdonalds_us","name":"McDonald's","c":"US"}],"stores":[["walmart_us",57.81196,-152.36531,"Mill Bay Road 2911","99615","Kodiak"],["safeway_us",57.81078,-152.36756,"Mill Bay Road 2685","99615","Kodiak"],["mcdonalds_us",57.79077,-152.40661,"","",""]]}
