@@ -1,2 +1,2 @@
-stapel-store-snapshot-v1 MEYCIQD8MObNkvzkBo4F5WvQNSuJjqCt0ESW7eKfwraGRUegGAIhANrMyLN4lb0RC9qDFtNJ9dnnbxS0Zf/QooLd9tV/FYEx
+stapel-store-snapshot-v1 MEQCIEcMbYA9BBaAJFDDOvPKYfKOtXMex9sZb3QGJ1Bd1SDeAiAPSD6qcLxrL4foV7jOF3HvM8N1WeoIjYOnlTbMQ/molw==
 {"v":20260916,"generated":"2026-09-16","country":"IS","partition":1247560588,"baseline":"0000","parts":[{"id":"0000","version":2,"bytes":19834,"sha256":"ec7097db86c4c1597355d7a9b183c30b2ecaf66ba33456495ba00ec183d6eb44","stores":293,"minLat":63.41745,"maxLat":66.53946,"minLon":-23.97643,"maxLon":-13.7074}]}
