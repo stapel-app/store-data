@@ -97,9 +97,65 @@ keep anyone out, and the key above is published for exactly that reason.
 
 ### The payloads
 
-`stores.*`, `countries.*` and `brands.*` payloads are UTF-8 JSON.
+`stores.*`, `countries.*` and `brands.*` payloads are UTF-8 JSON. Each carries its own `v`, the
+build date as `YYYYMMDD`, and a `generated` date. Different files can come from different builds.
 
-A `logos.<cc>.v1.signed` payload is an index and a blob, in one file:
+**`countries.v1.signed`** is the index of what exists, one row per country:
+
+```json
+{"code": "AR", "format": 1, "stores": 8597, "parts": 5, "logos": 0}
+```
+
+`parts` is how many files that country's shops are split into. `logos: 0` means it has no logo pack.
+
+**`stores.<cc>.manifest.v1.signed`** lists those parts, each with an `id`, `sha256`, `bytes`, a
+`stores` count and a bounding box (`minLat`, `maxLat`, `minLon`, `maxLon`), so a reader can fetch
+only the parts covering the area it cares about. `outline` holds the country border as
+`lat,lon;lat,lon;...` strings.
+
+**`stores.<cc>.<nnnn>.v1.signed`** holds `chains` and `stores`. A chain is an object:
+
+```json
+{"k": "ah", "name": "Albert Heijn", "c": "NL"}
+```
+
+A shop is a **positional array of exactly six values**, because over the whole dataset field names
+cost more than the data they label:
+
+```json
+["ah", 50.77265, 6.02083, "Prins Willem Alexanderplein 5", "6291GZ", "Vaals"]
+```
+
+| 0 | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| chain key, joins `chains[].k` | latitude | longitude | street | postcode | town |
+
+Latitude comes before longitude. Coordinates carry five decimals, about a metre, and are never
+empty. Street, postcode and town may each be an empty string:
+
+```json
+["ah", 50.84985, 5.70557, "", "", ""]
+```
+
+**`brands.v1.signed`** holds `brands` and `renames`. A brand is the loyalty programme, which is not
+the same thing as a chain: one programme can span several, which is what `chains` lists.
+
+```json
+{"key": "ah", "name": "Albert Heijn Bonuskaart", "chain": "Albert Heijn",
+ "chains": ["ah", "ah_be"], "aliases": ["Bonuskaart", "AH Bonuskaart"],
+ "colorHex": "#00ADE6", "icon": "local_grocery_store", "preferredFormat": "EAN_13",
+ "kind": "LOYALTY", "confidence": {"color": "verified", "format": "verified"},
+ "logo": "brand_ah"}
+```
+
+Every field shown is on every row except `logo`, which is on 620 of 933. `kind` is `LOYALTY`,
+`MEMBERSHIP` or `NONE`. `confidence` says which of `colorHex` and `preferredFormat` were checked
+against a real card rather than inferred, so a reuser can decline to trust a guess. `logo` is the
+key of an entry in a logo pack index, below. `renames` records a programme that changed name, with
+the build version it changed in.
+
+
+**`logos.<cc>.v1.signed`** is an index and a blob, in one file:
 
 ```
 <compact JSON index>\n<every logo's bytes, concatenated>
