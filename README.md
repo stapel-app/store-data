@@ -16,8 +16,9 @@ does not cover the logo packs.
 | `brands.v1.signed` | The brand catalogue: chains, their names, colours and barcode formats | **ODbL 1.0** |
 | `logos.<cc>.v1.signed` | Brand logo packs, one per country | **Not ODbL. Per file**, see [`ATTRIBUTION.md`](ATTRIBUTION.md) |
 
-The licence record covers 620 brand entries, resolving to 553 distinct image files, because one
-mark serves every brand that shares it. Their licences fall into eight states: 493 public domain, 54
+The licence record covers 620 brand entries over 554 image files, because one mark serves every
+brand that shares it. Of those files 443 travel in the packs published here and 111 ship inside
+the app itself. Their licences fall into eight states: 493 public domain, 54
 CC BY-SA, 9 CC0, 3 CC BY 4.0, 50 asserted PD-textlogo without a third party having ruled on it, and
 11 trademarks included on the maintainer's own judgement. So 57 entries carry an attribution duty and
 61 rest on an opinion rather than a ruling. [`ATTRIBUTION.md`](ATTRIBUTION.md) gives the licence,
