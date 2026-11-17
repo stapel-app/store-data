@@ -14,7 +14,7 @@ does not cover the logo packs.
 | `stores.<cc>.<nnnn>.v1.signed` | Store locations, in parts per country | **ODbL 1.0**, © OpenStreetMap contributors |
 | `countries.v1.signed` | The index naming every country and part | **ODbL 1.0** |
 | `brands.v1.signed` | The brand catalogue: chains, their names, colours and barcode formats | **ODbL 1.0** |
-| `hours.<cc>.v1.signed` | Opening hours per shop, where OpenStreetMap records them | **ODbL 1.0**, © OpenStreetMap contributors |
+| `hours.<cc>.v1.signed` | Opening hours per shop, from OpenStreetMap and from some chains' own shop-finder pages | **ODbL 1.0**, © OpenStreetMap contributors |
 | `logos.<cc>.v1.signed` | Brand logo packs, one per country | **Not ODbL. Per file**, see [`ATTRIBUTION.md`](ATTRIBUTION.md) |
 
 The licence record covers 620 brand entries over 554 image files, because one mark serves every
@@ -49,8 +49,12 @@ obtained, and it does not have to be ODbL itself.
 
 Store locations are derived from OpenStreetMap, taken from Geofabrik country extracts and matched to
 a chain on the `brand:wikidata` tag, so a shop is attributed to a chain by its own OSM tagging
-rather than by name matching. Opening hours come from the same extracts, read off each shop's own
-`opening_hours` tag, so a shop has hours here only where someone tagged them in OpenStreetMap. Logos
+rather than by name matching. Opening hours come from two places. Most are read off each shop's own
+`opening_hours` tag in the same extracts. The rest are read from the shop-finder pages a few chains
+publish themselves, which is why a row names the source that read it and the day it was read: those
+readings are current, where an OpenStreetMap one can be years old. The harvested rows are still
+ODbL, because each takes its chain, postcode, house number and coordinates from the OpenStreetMap
+database and only the hours from the page, which makes the whole file a derivative database. Logos
 are resolved from each chain's Wikidata entity via property **P154 (logo image)**, so no filename is
 guessed at, and the licence is then read from Commons' own file metadata.
 
