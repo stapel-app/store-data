@@ -14,6 +14,7 @@ does not cover the logo packs.
 | `stores.<cc>.<nnnn>.v1.signed` | Store locations, in parts per country | **ODbL 1.0**, © OpenStreetMap contributors |
 | `countries.v1.signed` | The index naming every country and part | **ODbL 1.0** |
 | `brands.v1.signed` | The brand catalogue: chains, their names, colours and barcode formats | **ODbL 1.0** |
+| `hours.<cc>.v1.signed` | Opening hours per shop, where OpenStreetMap records them | **ODbL 1.0**, © OpenStreetMap contributors |
 | `logos.<cc>.v1.signed` | Brand logo packs, one per country | **Not ODbL. Per file**, see [`ATTRIBUTION.md`](ATTRIBUTION.md) |
 
 The licence record covers 620 brand entries over 554 image files, because one mark serves every
@@ -47,10 +48,11 @@ obtained, and it does not have to be ODbL itself.
 ## Where the data comes from
 
 Store locations are derived from OpenStreetMap, taken from Geofabrik country extracts and matched to
-a chain on the `brand:wikidata` tag, so a shop is attributed to a chain by its own OSM tagging rather
-than by name matching. Logos are resolved from each chain's Wikidata entity via property **P154
-(logo image)**, so no filename is guessed at, and the licence is then read from Commons' own file
-metadata.
+a chain on the `brand:wikidata` tag, so a shop is attributed to a chain by its own OSM tagging
+rather than by name matching. Opening hours come from the same extracts, read off each shop's own
+`opening_hours` tag, so a shop has hours here only where someone tagged them in OpenStreetMap. Logos
+are resolved from each chain's Wikidata entity via property **P154 (logo image)**, so no filename is
+guessed at, and the licence is then read from Commons' own file metadata.
 
 Snapshots are rebuilt and republished about monthly. The code that builds them is not published.
 
@@ -154,6 +156,36 @@ against a real card rather than inferred, so a reuser can decline to trust a gue
 key of an entry in a logo pack index, below. `renames` records a programme that changed name, with
 the build version it changed in.
 
+
+**`hours.<cc>.v1.signed`** holds `weeks` and `shops`. The week strings repeat hard, so they are
+interned once in `weeks` and each shop carries an index into it:
+
+```json
+{"v": 20261117, "generated": "2026-11-17", "country": "nl",
+ "weeks": ["Mo-Sa 08:30-20:00; Su 10:00-18:00"],
+ "shops": [["ah", "1013BG", "11", 52.39359, 4.86494, 0]]}
+```
+
+A shop is a **positional array of exactly six values**, and the order is not the same as in a store
+part:
+
+| 0 | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| chain key | postcode | house number | latitude | longitude | index into `weeks` |
+
+Postcode and house number may each be an empty string, which is why the coordinates are there: they
+are how a reader matches a shop that carries no address. Latitude comes before longitude.
+
+A week is a subset of OpenStreetMap's
+[`opening_hours`](https://wiki.openstreetmap.org/wiki/Key:opening_hours) syntax: rules separated by
+`; `, each a day selector (`Mo`, `Mo-Fr`, or a comma list) and one or more `HH:MM-HH:MM` ranges,
+with `off` for a day the shop is shut and `24/7` for one that never closes. A closing time of
+`24:00` is midnight at the end of that day. A later rule overrides an earlier one for the same day.
+
+**A day no rule mentions means nothing is known about it, not that the shop is shut**, and a shop
+with no row here means nothing is known about that shop. A country with no `hours` file at all
+means the same thing again. Reading any of those three as "shut" will tell someone a shop is closed
+when it is open, which is the one mistake this file family is built to avoid.
 
 **`logos.<cc>.v1.signed`** is an index and a blob, in one file:
 
